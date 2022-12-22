@@ -37,12 +37,13 @@ public class BinlogConfiguration {
                 user,
                 password);
 
-        EventDeserializer eventDeserializer = new EventDeserializer();
-        eventDeserializer.setCompatibilityMode(
-                EventDeserializer.CompatibilityMode.DATE_AND_TIME_AS_LONG,
-                EventDeserializer.CompatibilityMode.CHAR_AND_BINARY_AS_BYTE_ARRAY
-        );
-        binaryLogClient.setEventDeserializer(eventDeserializer);
+        /* 받은 데이터를 BYTE 로 표현 */
+//        EventDeserializer eventDeserializer = new EventDeserializer();
+//        eventDeserializer.setCompatibilityMode(
+//                EventDeserializer.CompatibilityMode.DATE_AND_TIME_AS_LONG,
+//                EventDeserializer.CompatibilityMode.CHAR_AND_BINARY_AS_BYTE_ARRAY
+//        );
+//        binaryLogClient.setEventDeserializer(eventDeserializer);
         return binaryLogClient;
     }
 
