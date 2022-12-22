@@ -32,6 +32,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -55,11 +61,11 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!--  mysql - debezium  -->
+		<!--  MySQL Binary Log Connector  -->
 		<dependency>
-			<groupId>com.github.shyiko</groupId>
+			<groupId>com.zendesk</groupId>
 			<artifactId>mysql-binlog-connector-java</artifactId>
-			<version>0.21.0</version>
+			<version>0.27.5</version>
 		</dependency>
 		<!-- lombok -->
 		<dependency>
@@ -72,6 +78,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- Log4j2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
 			<version>3.0.0</version>
 		</dependency>
 
