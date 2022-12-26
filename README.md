@@ -32,7 +32,6 @@ mysql> ALTER USER 'mysql'@'%' IDENTIFIED WITH mysql_native_password BY 'mysql';
 $ vi /etc/mysql/my.cnf
 
 [mysqld]
-binlog_format = ROW
 binlog-do-db = test
 ```
 
