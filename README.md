@@ -1,4 +1,15 @@
-## **SpringBoot - MySQL Binlog CDC**
+## **(JAVA) SpringBoot - MySQL Binlog CDC**
+
+**Debezuim에서 사용되는 MySQL Binlog Connector 라이브러리를 활용**
+
+> MySQL Binlog Connector 기능
+
+* Auto binlog 파일 이름 /위치 추적
+* TLS 보안 통신
+* JMX 친화적
+* 실시간 통계
+* 타사 종속성 없음
+* Maven Central의 가용성
 
 ---
 
@@ -6,18 +17,18 @@
 
 실행을 위한 기본 설정  
 ```
--- Streaming 용 계정 권한 부여 
+-- CDC 용 계정 권한 부여 
 mysql> GRANT SELECT, PROCESS, FILE, SUPER, REPLICATION CLIENT, REPLICATION SLAVE, RELOAD ON *.* TO mysql@'%';
 mysql> flush privileges;
 ```
 
 ```
--- 플러그인을 caching_sha2_password => mysql_native_password 로 변경
+-- 플러그인을 caching_sha2_password => mysql_native_password 로 변경 (선택)
 mysql> ALTER USER 'mysql'@'%' IDENTIFIED WITH mysql_native_password BY 'mysql';
 ```
 
 ```
--- my.cnf 설정  
+-- my.cnf 설정 (선택)  
 $ vi /etc/mysql/my.cnf
 
 [mysqld]
