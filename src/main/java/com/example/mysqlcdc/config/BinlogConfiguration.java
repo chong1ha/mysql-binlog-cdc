@@ -1,8 +1,6 @@
 package com.example.mysqlcdc.config;
 
-import com.example.mysqlcdc.handler.BinlogEventHandler;
 import com.github.shyiko.mysql.binlog.BinaryLogClient;
-import com.github.shyiko.mysql.binlog.event.deserialization.EventDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -45,11 +43,6 @@ public class BinlogConfiguration {
 //        );
 //        binaryLogClient.setEventDeserializer(eventDeserializer);
         return binaryLogClient;
-    }
-
-    @Bean
-    public BinaryLogClient.EventListener eventListener(){
-        return new BinlogEventHandler();
     }
 
 }
