@@ -63,6 +63,14 @@ END
 CALL INSERT_DATA();
 ```
 
+### 업데이트(23-03-03)
+
+MySQL 버전 8.0.1 이상에서는 이진 로그에 열 이름이 추가되어 응용 프로그램이 테이블의 특정 열을 더 쉽게 식별하고 처리할 수 있게 됨.    
+그러나 기본적으로 로그 크기를 줄이고 성능을 향상시키기 위해 열 이름은 이진 로그에 포함되지 않음   
+즉, 이진 로그에 열 이름을 포함하려면binlog_row_metadata 변수를 FULL로 설정  
+```
+SET GLOBAL binlog_row_metadata='FULL';
+```
 
 ### 참고
 * [mysql-binlog-connector-java](https://github.com/shyiko/mysql-binlog-connector-java)    
