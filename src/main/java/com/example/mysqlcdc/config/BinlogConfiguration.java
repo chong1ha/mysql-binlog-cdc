@@ -16,14 +16,17 @@ import org.springframework.context.annotation.Bean;
 @ConfigurationProperties(prefix = "binlog")
 public class BinlogConfiguration {
 
-    /* BinLog Conn */
+    /** DB host(ipv4) */
     private String host;
+    /** DB port */
     private int port;
+    /** DB username */
     private String user;
+    /** DB password */
     private String password;
 
     /**
-     * Tapping into MySQL Replication Stream
+     * Tapping into MySQL Replication Stream<br>
      *   - [전제] Replication Slave Privilege
      */
     @Bean
@@ -35,13 +38,14 @@ public class BinlogConfiguration {
                 user,
                 password);
 
-        /* 받은 데이터를 BYTE 로 표현 */
+        // 받은 데이터를 BYTE 로 표현
 //        EventDeserializer eventDeserializer = new EventDeserializer();
 //        eventDeserializer.setCompatibilityMode(
 //                EventDeserializer.CompatibilityMode.DATE_AND_TIME_AS_LONG,
 //                EventDeserializer.CompatibilityMode.CHAR_AND_BINARY_AS_BYTE_ARRAY
 //        );
 //        binaryLogClient.setEventDeserializer(eventDeserializer);
+
         return binaryLogClient;
     }
 

@@ -10,6 +10,7 @@
 		<version>2.7.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.example</groupId>
 	<artifactId>mysql-cdc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -25,6 +26,11 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<!-- 의존성 라이브러리 버전 별도 관리 -->
+		<mysql-connector.v>0.27.5</mysql-connector.v>
+		<pusher.v>1.3.3</pusher.v>
+		<log4j2.v>3.0.0</log4j2.v>
 	</properties>
 
 	<!-- Add typical dependencies for a web application -->
@@ -39,52 +45,57 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- mysql -->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<!--  MySQL Binary Log Connector  -->
 		<dependency>
 			<groupId>com.zendesk</groupId>
 			<artifactId>mysql-binlog-connector-java</artifactId>
-			<version>0.27.5</version>
+			<version>${mysql-connector.v}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pusher</groupId>
 			<artifactId>pusher-http-java</artifactId>
-			<version>1.3.3</version>
+			<version>${pusher.v}</version>
 		</dependency>
+
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<!-- Log4j2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
-			<version>3.0.0</version>
+			<version>${log4j2.v}</version>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- 애플리케이션 빌드를 위해 필요한 플러그인 설정  -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<excludes>
+						<!-- lombok 제외 -->
 						<exclude>
-							<groupId>org.projectlombok</groupId>
+							<groupId>org.project-lombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
